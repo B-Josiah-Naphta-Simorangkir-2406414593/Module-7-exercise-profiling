@@ -16,4 +16,6 @@ import java.util.List;
 public interface StudentRepository extends JpaRepository<Student, Long> {
     @Query("SELECT s FROM Student s ORDER BY s.gpa DESC")
     List<Student> findHighestGpaStudent(Pageable pageable);
+    @Query("SELECT s.name FROM Student s")
+    List<String> findAllStudentNames();
 }
